@@ -238,3 +238,116 @@ arm-none-eabi-size  lab2.elf
    8108	     16	   1648	   9772	   262c	lab2.elf
 Finished building: default.size.stdout
  
+14:30:55 **** Incremental Build of configuration Debug for project lab2 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:170:18: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  170 | int led_buffer[4]{
+      |                  ^
+../Core/Src/main.c: In function 'update7SEG':
+../Core/Src/main.c:176:29: error: 'led_buffer' undeclared (first use in this function)
+  176 |                 display7SEG(led_buffer[0]);
+      |                             ^~~~~~~~~~
+../Core/Src/main.c:176:29: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:177:59: error: 'GIPO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_PIN_SET'?
+  177 |                 HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, GIPO_PIN_SET);
+      |                                                           ^~~~~~~~~~~~
+      |                                                           GPIO_PIN_SET
+../Core/Src/main.c:178:59: error: 'GIPO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_PIN_RESET'?
+  178 |                 HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, GIPO_PIN_RESET);
+      |                                                           ^~~~~~~~~~~~~~
+      |                                                           GPIO_PIN_RESET
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:31:37 **** Incremental Build of configuration Debug for project lab2 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'update7SEG':
+../Core/Src/main.c:175:59: error: 'GIPO_PIN_SET' undeclared (first use in this function); did you mean 'GPIO_PIN_SET'?
+  175 |                 HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, GIPO_PIN_SET);
+      |                                                           ^~~~~~~~~~~~
+      |                                                           GPIO_PIN_SET
+../Core/Src/main.c:175:59: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:176:59: error: 'GIPO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_PIN_RESET'?
+  176 |                 HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, GIPO_PIN_RESET);
+      |                                                           ^~~~~~~~~~~~~~
+      |                                                           GPIO_PIN_RESET
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:34:12 **** Incremental Build of configuration Debug for project lab2 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Nam4\VXL_VDK\STM32LAB2\LAB2\lab2\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab2.elf
+ 
+arm-none-eabi-size  lab2.elf 
+arm-none-eabi-objdump -h -S lab2.elf  > "lab2.list"
+arm-none-eabi-objcopy  -O ihex lab2.elf  "lab2.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8400	     32	   1656	  10088	   2768	lab2.elf
+Finished building: default.size.stdout
+ 
+Finished building: lab2.hex
+ 
+Finished building: lab2.list
+ 
+14:35:13 **** Incremental Build of configuration Debug for project lab2 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:264:1: error: expected identifier or '(' before '}' token
+  264 | }
+      | ^
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:35:39 **** Incremental Build of configuration Debug for project lab2 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Nam4\VXL_VDK\STM32LAB2\LAB2\lab2\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab2.elf
+ 
+arm-none-eabi-size  lab2.elf 
+arm-none-eabi-objdump -h -S lab2.elf  > "lab2.list"
+arm-none-eabi-objcopy  -O ihex lab2.elf  "lab2.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8220	     32	   1648	   9900	   26ac	lab2.elf
+Finished building: default.size.stdout
+ 
+Finished building: lab2.hex
+ 
+Finished building: lab2.list
+ 
+14:38:53 **** Incremental Build of configuration Debug for project lab2 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:395:14: error: conflicting types for 'index_led'; have 'unsigned int'
+  395 | unsigned int index_led = 0;
+      |              ^~~~~~~~~
+../Core/Src/main.c:169:5: note: previous definition of 'index_led' with type 'int'
+  169 | int index_led = 0;
+      |     ^~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:41:07 **** Incremental Build of configuration Debug for project lab2 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Nam4\VXL_VDK\STM32LAB2\LAB2\lab2\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab2.elf
+ 
+arm-none-eabi-size  lab2.elf 
+arm-none-eabi-objdump -h -S lab2.elf  > "lab2.list"
+arm-none-eabi-objcopy  -O ihex lab2.elf  "lab2.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8220	     32	   1648	   9900	   26ac	lab2.elf
+Finished building: default.size.stdout
+ 
+Finished building: lab2.hex
+ 
+Finished building: lab2.list
+ 
+14:43:48 **** Incremental Build of configuration Debug for project lab2 ****
+make -j12 all 
+arm-none-eabi-size  lab2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8220	     32	   1648	   9900	   26ac	lab2.elf
+Finished building: default.size.stdout
+ 
