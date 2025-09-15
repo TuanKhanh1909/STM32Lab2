@@ -1,9 +1,10 @@
 ../Core/Src/main.c:59:6:clear7SEG	1
 ../Core/Src/main.c:69:6:display7SEG	11
 ../Core/Src/main.c:171:6:update7SEG	5
-../Core/Src/main.c:220:5:main	2
-../Core/Src/main.c:270:6:SystemClock_Config	3
-../Core/Src/main.c:307:13:MX_TIM2_Init	4
-../Core/Src/main.c:352:13:MX_GPIO_Init	1
-../Core/Src/main.c:397:6:HAL_TIM_PeriodElapsedCallback	7
-../Core/Src/main.c:417:6:Error_Handler	1
+../Core/Src/main.c:215:6:updateClockBuffer	1
+../Core/Src/main.c:227:5:main	4
+../Core/Src/main.c:292:6:SystemClock_Config	3
+../Core/Src/main.c:329:13:MX_TIM2_Init	4
+../Core/Src/main.c:374:13:MX_GPIO_Init	1
+../Core/Src/main.c:419:6:HAL_TIM_PeriodElapsedCallback	7
+../Core/Src/main.c:439:6:Error_Handler	1
