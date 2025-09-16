@@ -286,7 +286,7 @@ setTimer1(400);
 	  if(timer1_flag == 1){
 		  setTimer1(400);
 		  update7SEG(index_led++);
-			  if (!(index_led < MAX_LED)) index_led = 0;
+			  if (!(index_led < MAX_LED)) index = 0;
 	  }
 	  /*if(timer1_flag==1){
 		  setTimer1(100);

@@ -166,7 +166,7 @@ void display7SEG (int num) {
 }
 }
 // End display7SEG
-const unsigned int MAX_LED = 4;
+const int MAX_LED = 4;
 int index_led = 0;
 int led_buffer[4];
 void update7SEG(int index){
@@ -285,8 +285,8 @@ setTimer1(400);
 	  //4s chay 1 lan
 	  if(timer1_flag == 1){
 		  setTimer1(400);
-		  update7SEG(index_led++);
-			  if (!(index_led < MAX_LED)) index_led = 0;
+		  update7SEG(index_led++):
+			  if (!(index_lex < MAX_LED)) index = 0;
 	  }
 	  /*if(timer1_flag==1){
 		  setTimer1(100);
@@ -429,10 +429,10 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
-
+int counter = 400;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	timer_run();
-	/*if (counter == 400){
+	if (counter == 400){
 		update7SEG(index_led++);
 	}else if (counter == 300){
 		update7SEG(index_led++);
@@ -443,7 +443,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	}
 	if (!(index_led < MAX_LED)) index_led = 0;
 	counter = (counter > 0) ? counter - 1: 400;
-	//timerRun(); */
+	//timerRun();
 
 }
 /* USER CODE END 4 */
