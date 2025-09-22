@@ -1,0 +1,19 @@
+!SESSION 2025-09-22 21:50:55.684 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  E:\Nam4\VXL_VDK\STM32LAB2\LAB2\lab2\.cproject
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 E:\Nam4\VXL_VDK\STM32LAB2\LAB2\lab2\.cproject
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-09-22 21:51:15.897
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-09-22 21:51:15.903
+!MESSAGE Log4j2 initialized with config file E:\Nam4\VXL_VDK\STM32LAB2\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-09-22 21:51:28.112
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-09-22 21:51:36.507
+!MESSAGE Indexed 'lab2' (21 sources, 134 headers) in 5.5 sec: 10,299 declarations; 47,644 references; 6 unresolved inclusions; 58 syntax errors; 1,085 unresolved names (1.8%)
