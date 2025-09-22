@@ -1,7 +1,7 @@
 ../Core/Src/main.c:59:6:clear7SEG	8	static
 ../Core/Src/main.c:69:6:display7SEG	16	static
-../Core/Src/main.c:171:6:update7SEG	16	static
-../Core/Src/main.c:220:5:main	8	static
+../Core/Src/main.c:170:6:update7SEG	16	static
+../Core/Src/main.c:219:5:main	8	static
 ../Core/Src/main.c:270:6:SystemClock_Config	72	static
 ../Core/Src/main.c:307:13:MX_TIM2_Init	32	static
 ../Core/Src/main.c:352:13:MX_GPIO_Init	32	static
