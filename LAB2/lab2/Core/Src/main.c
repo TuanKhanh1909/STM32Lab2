@@ -223,57 +223,64 @@ void updateClockBuffer(int hour, int minute){
 const int MAX_LED_MATRIX = 8;
 int index_led_matrix = 0;
 uint8_t matrix_buffer[8] = {
-		0x7E, 0x11, 0x11, 0x7E, 0x11, 0x11, 0x11, 0x00
+		 0b00000000,
+		 0b00111111,
+		 0b01001000,
+		 0b10001000,
+		 0b10001000,
+		 0b01001000,
+		 0b00111111,
+		 0b00000000
 };
 
 void turnOffAllMatrixColumn(){
-	HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, GPIO_PIN_SET);
 }
 
 void setMatrixRowData(uint8_t data){
-	HAL_GPIO_WritePin(ROW0_GPIO_Port, ROW0_Pin, (data >> 0) & 0x01);
-	HAL_GPIO_WritePin(ROW1_GPIO_Port, ROW1_Pin, (data >> 1) & 0x01);
-	HAL_GPIO_WritePin(ROW2_GPIO_Port, ROW2_Pin, (data >> 2) & 0x01);
-	HAL_GPIO_WritePin(ROW3_GPIO_Port, ROW3_Pin, (data >> 3) & 0x01);
-	HAL_GPIO_WritePin(ROW4_GPIO_Port, ROW4_Pin, (data >> 4) & 0x01);
-	HAL_GPIO_WritePin(ROW5_GPIO_Port, ROW5_Pin, (data >> 5) & 0x01);
-	HAL_GPIO_WritePin(ROW6_GPIO_Port, ROW6_Pin, (data >> 6) & 0x01);
-	HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, (data >> 7) & 0x01);
+	HAL_GPIO_WritePin(ROW0_GPIO_Port, ROW0_Pin, !((data >> 7) & 0x1));
+	HAL_GPIO_WritePin(ROW1_GPIO_Port, ROW1_Pin, !((data >> 6) & 0x1));
+	HAL_GPIO_WritePin(ROW2_GPIO_Port, ROW2_Pin, !((data >> 5) & 0x1));
+	HAL_GPIO_WritePin(ROW3_GPIO_Port, ROW3_Pin, !((data >> 4) & 0x1));
+	HAL_GPIO_WritePin(ROW4_GPIO_Port, ROW4_Pin, !((data >> 3) & 0x1));
+	HAL_GPIO_WritePin(ROW5_GPIO_Port, ROW5_Pin, !((data >> 2) & 0x1));
+	HAL_GPIO_WritePin(ROW6_GPIO_Port, ROW6_Pin, !((data >> 1) & 0x1));
+	HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, !((data >> 0) & 0x1));
 }
 void updateLEDMatrix(int index){
 	turnOffAllMatrixColumn();
 	setMatrixRowData(matrix_buffer[index]);
 	switch (index){
 	case 0:
-		HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, SET);
+		HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, RESET);
 		break;
 	case 1:
-		HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, SET);
+		HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, RESET);
 		break;
 	case 2:
-		HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, SET);
+		HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, RESET);
 		break;
 	case 3:
-		HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, SET);
+		HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, RESET);
 		break;
 	case 4:
-		HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, SET);
+		HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, RESET);
 		break;
 	case 5:
-		HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, SET);
+		HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, RESET);
 		break;
 	case 6:
-		HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, SET);
+		HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, RESET);
 		break;
 	case 7:
-		HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, SET);
+		HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, RESET);
 		break;
 	default:
 		break;
@@ -319,8 +326,8 @@ HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE BEGIN WHILE */
 int hour = 15, minute = 8, second = 50;
 setTimer0(100);
-setTimer1(100);
-setTimer2(2);
+setTimer1(25);
+setTimer2(3);
   while (1)
   {
 	  //1s chay 1 lan
@@ -343,15 +350,15 @@ setTimer2(2);
 	  updateClockBuffer(hour, minute);
 	  }
 
-	  //s chay 1 lan
+	  //1s chay 4 lan
 	  if(timer1_flag == 1){
-		  setTimer1(100);
+		  setTimer1(25);
 		  update7SEG(index_led++);
 			  if (!(index_led < MAX_LED)) index_led = 0;
 	  }
 
 	  if(timer2_flag == 1){
-		  setTimer2(2);
+		  setTimer2(3);
 		  updateLEDMatrix(index_led_matrix);
 		  index_led_matrix++;
 		  if (index_led_matrix >= 8){
