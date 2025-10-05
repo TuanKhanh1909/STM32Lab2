@@ -416,19 +416,19 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
-int counter = 400;
+int counter = 100;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
-	if (counter == 400){
+	if (counter == 100){
 		update7SEG(index_led++);
-	}else if (counter == 300){
+	}else if (counter == 75){
 		update7SEG(index_led++);
-	}else if (counter == 200){
+	}else if (counter == 50){
 		update7SEG(index_led++);
-	}else if (counter == 100){
+	}else if (counter == 25){
 		update7SEG(index_led++);
 	}
 	if (!(index_led < MAX_LED)) index_led = 0;
-	counter = (counter > 0) ? counter - 1: 400;
+	counter = (counter > 0) ? counter - 1: 100;
 	timerRun();
 }
 /* USER CODE END 4 */
