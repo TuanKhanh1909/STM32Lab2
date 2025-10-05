@@ -291,7 +291,7 @@ void updateLEDMatrix(int index){
 void shiftLeftMatrix(){
 	uint8_t first_col = matrix_buffer[0];
 	for (int i = 0; i < MAX_LED_MATRIX - 1; i++){
-		matrix_buffer[i]= matrix_buffer[i+1];
+		matrix_buffer[0]= matrix_buffer[i+1];
 	}
 	matrix_buffer[MAX_LED_MATRIX - 1] = first_col;
 
@@ -369,7 +369,7 @@ setTimer3(20);
 	  }
 
 	  if(timer2_flag == 1){
-	  		  setTimer2(1);
+	  		  setTimer2(3);
 	  		  updateLEDMatrix(index_led_matrix);
 	  		  index_led_matrix++;
 	  		  if (index_led_matrix >= 8){

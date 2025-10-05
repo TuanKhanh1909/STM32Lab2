@@ -369,7 +369,7 @@ setTimer3(20);
 	  }
 
 	  if(timer2_flag == 1){
-	  		  setTimer2(1);
+	  		  setTimer2(3);
 	  		  updateLEDMatrix(index_led_matrix);
 	  		  index_led_matrix++;
 	  		  if (index_led_matrix >= 8){
