@@ -319,6 +319,10 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, GPIO_PIN_SET);
+HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, GPIO_PIN_SET);
+HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, GPIO_PIN_SET);
+HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, GPIO_PIN_SET);
 HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
 
@@ -328,6 +332,7 @@ int hour = 15, minute = 8, second = 50;
 setTimer0(100);
 setTimer1(25);
 setTimer2(3);
+updateClockBuffer(hour, minute);
   while (1)
   {
 	  //1s chay 1 lan
