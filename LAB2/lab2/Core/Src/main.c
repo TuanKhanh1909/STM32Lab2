@@ -251,6 +251,10 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, GPIO_PIN_SET);
 HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
 
@@ -434,7 +438,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	}
 	if (!(index_led < MAX_LED)) index_led = 0;
 	counter = (counter > 0) ? counter - 1: 100;
-	timerRun();
 
 }
 /* USER CODE END 4 */
